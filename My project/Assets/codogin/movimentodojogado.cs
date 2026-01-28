@@ -53,10 +53,24 @@ public class movimentodojogado : MonoBehaviour
 
 
     }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+         if(collision.tag=="inimigo")
+      {
+         Debug.Log("inimigo");
+
+      }
+      else if (collision.tag == "item")
+      {
+         Debug.Log("item");
+      }
+    }
 
 
 
-   
+
+
+
 
 
 

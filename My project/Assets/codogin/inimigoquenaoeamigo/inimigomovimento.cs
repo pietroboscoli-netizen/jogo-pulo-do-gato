@@ -22,6 +22,7 @@ public class inimigomovimento : MonoBehaviour
     {
         Andar();
   
+        LadoDoMovimento();
     }
     public void LadoDoMovimento()
     {
