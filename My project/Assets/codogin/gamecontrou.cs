@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -10,10 +11,17 @@ public class gamecontrou : MonoBehaviour
    public int pontos=0;
    public Text txtpontos;
    public Text txtvida;
+   public GameObject item;
+  private IEnumerator coroutine; 
     void Start()
     {
         vida=10;
         pontos=0;
+       
+       
+        coroutine=CriarItensComOTempoPresisoEONesesario();
+        StartCoroutine(coroutine); 
+
 
     }
 
@@ -22,8 +30,36 @@ public class gamecontrou : MonoBehaviour
         txtpontos.text=pontos.ToString();
         txtvida.text=vida.ToString();
     }
+    public void RecuberDano(int receber)
+    {
+        vida-=receber;
+        
+
+    }
+    public void ReceberPontos(int receberpopntods)
+    {
+        pontos+=receberpopntods;
+        
+    }
+    public void CriarItem()
+    {
+        float x=Random.Range(-9,9);
+        float y=Random.Range(0,5);
+        
+        
+        
+        Vector2 posisaoaleotoria=new Vector2(x,y);
+       Instantiate(item,posisaoaleotoria,Quaternion.identity);
+
+    }
+    private IEnumerator CriarItensComOTempoPresisoEONesesario()
+    {
+    while (true)
+    {
+         yield return new WaitForSeconds(2);
+        CriarItem();
     
+    }
 
-
-
+    }
 }

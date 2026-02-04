@@ -17,6 +17,8 @@ public class movimentodojogado : MonoBehaviour
    public float raiodeverificarchao=0.2f;
    public Transform antevoo;
    public LayerMask chaollaier;
+    public  gamecontrou gamecontrouo;
+    
     private void Update()
     {
         Andar();
@@ -57,12 +59,17 @@ public class movimentodojogado : MonoBehaviour
     {
          if(collision.tag=="inimigo")
       {
-         Debug.Log("inimigo");
+         
+         
+         gamecontrouo.RecuberDano(1);
+            
+         
 
       }
       else if (collision.tag == "item")
       {
-         Debug.Log("item");
+           gamecontrouo.ReceberPontos(100);
+           Destroy(collision.gameObject);
       }
     }
 
