@@ -9,6 +9,8 @@ public class gamecontrou : MonoBehaviour
 {
    public int vida=10;
    public int pontos=0;
+   public int MaxItems = 5;
+   public int QntdeItenss = 0;
    public Text txtpontos;
    public Text txtvida;
    public GameObject item;
@@ -50,14 +52,26 @@ public class gamecontrou : MonoBehaviour
         
         Vector2 posisaoaleotoria=new Vector2(x,y);
        Instantiate(item,posisaoaleotoria,Quaternion.identity);
+        QntdeItenss++;
+    }
+    public void ItensColetados()
+    {
+        QntdeItenss--;
+
+
 
     }
+    
     private IEnumerator CriarItensComOTempoPresisoEONesesario()
     {
     while (true)
     {
          yield return new WaitForSeconds(2);
-        CriarItem();
+        if (QntdeItenss < MaxItems)
+            {
+                CriarItem();
+            }
+         
     
     }
 

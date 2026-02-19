@@ -69,6 +69,7 @@ public class movimentodojogado : MonoBehaviour
       else if (collision.tag == "item")
       {
            gamecontrouo.ReceberPontos(100);
+           gamecontrouo.ItensColetados();
            Destroy(collision.gameObject);
       }
     }
