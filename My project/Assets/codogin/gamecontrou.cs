@@ -14,12 +14,13 @@ public class gamecontrou : MonoBehaviour
    public Text txtpontos;
    public Text txtvida;
    public GameObject item;
-  private IEnumerator coroutine; 
+    public GameObject menu;
+    private IEnumerator coroutine; 
     void Start()
     {
         vida=10;
         pontos=0;
-       
+       menu.SetActive(true);
        
         coroutine=CriarItensComOTempoPresisoEONesesario();
         StartCoroutine(coroutine); 
@@ -66,7 +67,7 @@ public class gamecontrou : MonoBehaviour
     {
     while (true)
     {
-         yield return new WaitForSeconds(2);
+         yield return new WaitForSeconds(0.5f);
         if (QntdeItenss < MaxItems)
             {
                 CriarItem();
@@ -76,4 +77,11 @@ public class gamecontrou : MonoBehaviour
     }
 
     }
+
+
+
 }
+
+
+
+

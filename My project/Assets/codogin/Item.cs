@@ -4,55 +4,22 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public gamecontrou gamecontrou;
     private void Awake()
     {
-        Invoke("IrJogarNoVasco",5);
-   
-    
+        gamecontrou=GameObject.Find("gamemaneger").GetComponent<gamecontrou>();
+        Invoke("IrJogarNoVasco", 5);
+
+
     }
     private void IrJogarNoVasco()
     {
+        gamecontrou.ItensColetados();
         Destroy(gameObject);
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
 
 
 
