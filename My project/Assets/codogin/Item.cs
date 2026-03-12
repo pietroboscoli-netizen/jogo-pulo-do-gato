@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     public gamecontrou gamecontrou;
     private void Awake()
     {
-        gamecontrou=GameObject.Find("gamemaneger").GetComponent<gamecontrou>();
+        gamecontrou = GameObject.Find("gamemaneger").GetComponent<gamecontrou>();
         Invoke("IrJogarNoVasco", 5);
 
 
