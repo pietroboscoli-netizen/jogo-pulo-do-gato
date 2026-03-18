@@ -1484,6 +1484,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2147483648
   gamecontrouo: {fileID: 1431756259}
+  anin: {fileID: 1237550133}
+  DIGITOU: 0
 --- !u!50 &1634886639
 Rigidbody2D:
   serializedVersion: 4

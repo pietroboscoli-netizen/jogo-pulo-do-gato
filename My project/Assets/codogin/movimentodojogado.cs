@@ -18,16 +18,32 @@ public class movimentodojogado : MonoBehaviour
     public Transform antevoo;
     public LayerMask chaollaier;
     public gamecontrou gamecontrouo;
-
+    public Animator anin;
+    public bool DIGITOU=false;
+    public bool animacaosecreta = false;
     private void Update()
     {
         Andar();
         estanocha = Physics2D.OverlapCircle(antevoo.position, raiodeverificarchao, chaollaier);
-
+        if (DIGITOU == false)
+        {
+            if (animacaosecreta == false)
+            {
+                animacaosecreta = true;
+                anin.Play("TEMPOPERSONAGEM");
+            }
+        }
+        else 
+        {
+            animacaosecreta = false;
+            anin.Play("personagemanimaça");     
+        
+        }
+        
         if (Input.GetButtonDown("pulo") && estanocha)
         {
             rbd2.velocity = new Vector2(rbd2.velocity.x, forcadopulo);
-
+            DIGITOU = true;
         }
     }
 
@@ -37,12 +53,17 @@ public class movimentodojogado : MonoBehaviour
         float Andary = rbd2.velocity.y;
         if (Andarx > 0)
         {
+            DIGITOU = true;
             sprite.flipX = false;
         }
         else if (Andarx < 0)
         {
             sprite.flipX = true;
-
+            DIGITOU=true;
+        }
+        else
+        {
+            DIGITOU =false;
         }
         rbd2.velocity = new Vector2(Andarx, Andary);
 
